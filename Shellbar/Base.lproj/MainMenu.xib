@@ -13,40 +13,24 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Shellbar" customModuleProvider="target">
             <connections>
-                <outlet property="progressSpinner" destination="vKC-rN-Dlo" id="fWU-XV-Ue9"/>
                 <outlet property="view" destination="zWt-GW-YZo" id="xgH-Fd-rR6"/>
                 <outlet property="window" destination="Imk-Ol-FeC" id="12W-wZ-Rum"/>
             </connections>
         </customObject>
-        <window title="Shellbar" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" id="Imk-Ol-FeC">
-            <windowPositionMask key="initialPositionMask" topStrut="YES"/>
-            <rect key="contentRect" x="335" y="735" width="72" height="72"/>
+        <window title="Shellbar" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Imk-Ol-FeC">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="317" y="300" width="200" height="200"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1366" height="768"/>
             <view key="contentView" id="zWt-GW-YZo">
-                <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <progressIndicator wantsLayer="YES" focusRingType="none" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="vKC-rN-Dlo">
-                        <rect key="frame" x="20" y="20" width="32" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="32" id="GpQ-Cd-sc8"/>
-                            <constraint firstAttribute="height" constant="32" id="v6z-ae-73y"/>
-                        </constraints>
-                        <animations/>
-                    </progressIndicator>
-                </subviews>
-                <constraints>
-                    <constraint firstAttribute="trailing" secondItem="vKC-rN-Dlo" secondAttribute="trailing" constant="20" id="6zZ-Ba-t4J"/>
-                    <constraint firstItem="vKC-rN-Dlo" firstAttribute="leading" secondItem="zWt-GW-YZo" secondAttribute="leading" constant="20" id="QOi-hd-CYP"/>
-                    <constraint firstAttribute="bottom" secondItem="vKC-rN-Dlo" secondAttribute="bottom" constant="20" id="dYD-dP-YQB"/>
-                    <constraint firstItem="vKC-rN-Dlo" firstAttribute="top" secondItem="zWt-GW-YZo" secondAttribute="top" constant="20" id="zKw-Ki-MyS"/>
-                </constraints>
                 <animations/>
             </view>
             <connections>
                 <outlet property="delegate" destination="Voe-Tx-rLC" id="ceY-0i-mxa"/>
             </connections>
-            <point key="canvasLocation" x="438" y="258"/>
+            <point key="canvasLocation" x="371.5" y="340.5"/>
         </window>
     </objects>
 </document>

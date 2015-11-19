@@ -3,19 +3,21 @@
 //  Copyright © 2015-2016 Patrick Hart. All rights reserved.
 //
 
-import SwiftShell
-import Cocoa
+// SwiftLint
+// swiftlint:disable trailing_whitespace
+// swiftlint:disable line_length
+
 import Foundation
+import Cocoa
+import AppleScriptKit
+import AppleScriptObjC
+import SwiftShell
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var view: NSView!
-    
-    // Progress Stuff
-    @IBOutlet weak var progressSpinner: NSProgressIndicator!
-    
     
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
     
@@ -53,20 +55,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
     }
     
-    // Script Functions
-    func ClearLogsScript() -> Void {
-        let ClearLogsTask = NSTask()
-        ClearLogsTask.launchPath = "/usr/bin/osascript"
-        ClearLogsTask.arguments = ["ClearLogs.applescript"]
-        ClearLogsTask.launch()
-    }
-    func EmptyTrashScript() -> Void {
-        let EmptyTrashTask = NSTask()
-        EmptyTrashTask.launchPath = "/usr/bin/osascript"
-        EmptyTrashTask.arguments = ["EmptyTrash.applescript"]
-        EmptyTrashTask.launch()
-    }
-    
     // Show Hidden Files
     func ShowFiles(sender: AnyObject) {
         ShowNotify()
@@ -79,15 +67,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     // Clear Logs
     func ClearLogs(sender: AnyObject) {
-        ClearLogsNotify()
-        ClearLogsScript()
+        //ClearLogsNotify()
+        run("osascript -e 'do shell script \"sudo rm -fdrv /tmp/*; sudo rm -fdrv /var/tmp/*; sudo rm -fdrv /var/log/*; sudo rm -fdrv /private/tmp/*; sudo rm -fdrv /private/var/log/*\" with administrator privileges'")
     }
     // Empty Trash
     func EmptyTrash(sender: AnyObject) {
-        EmptyTrashNotify()
-        EmptyTrashScript()
+        //EmptyTrashNotify()
+        run("osascript -e 'do shell script \"sudo rm -fdrv ~/.Trash/*\" with administrator privileges'")
     }
-    
+
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         if let button = statusItem.button {
             button.image = NSImage(named: "StatusBarIcon")

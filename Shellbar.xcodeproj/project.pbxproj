@@ -7,22 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F71D3D51BFE894C000FC3EB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D3D31BFE894C000FC3EB /* MainMenu.xib */; };
 		4F967DA01BFD1DDA0048DE4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F967D9F1BFD1DDA0048DE4D /* AppDelegate.swift */; };
 		4F967DA21BFD1DDA0048DE4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F967DA11BFD1DDA0048DE4D /* Assets.xcassets */; };
-		4F967DA51BFD1DDA0048DE4D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F967DA31BFD1DDA0048DE4D /* MainMenu.xib */; };
-		4F967DCB1BFD1F390048DE4D /* ClearLogs.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 4F967DCA1BFD1F390048DE4D /* ClearLogs.applescript */; };
-		4F967DCD1BFD1F500048DE4D /* EmptyTrash.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 4F967DCC1BFD1F500048DE4D /* EmptyTrash.applescript */; };
 		4F967DCF1BFD1F610048DE4D /* SwiftShell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F967DCE1BFD1F610048DE4D /* SwiftShell.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F71D3D41BFE894C000FC3EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4F967D9C1BFD1DDA0048DE4D /* Shellbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shellbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F967D9F1BFD1DDA0048DE4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F967DA11BFD1DDA0048DE4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4F967DA41BFD1DDA0048DE4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4F967DA61BFD1DDA0048DE4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F967DCA1BFD1F390048DE4D /* ClearLogs.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = ClearLogs.applescript; sourceTree = "<group>"; };
-		4F967DCC1BFD1F500048DE4D /* EmptyTrash.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = EmptyTrash.applescript; sourceTree = "<group>"; };
 		4F967DCE1BFD1F610048DE4D /* SwiftShell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftShell.framework; path = ../../Library/Frameworks/SwiftShell.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,7 +37,6 @@
 		4F967D931BFD1DDA0048DE4D = {
 			isa = PBXGroup;
 			children = (
-				4F967DC91BFD1F1D0048DE4D /* Scripts */,
 				4F967DC81BFD1F100048DE4D /* Frameworks */,
 				4F967D9E1BFD1DDA0048DE4D /* Shellbar */,
 				4F967D9D1BFD1DDA0048DE4D /* Products */,
@@ -59,9 +54,9 @@
 		4F967D9E1BFD1DDA0048DE4D /* Shellbar */ = {
 			isa = PBXGroup;
 			children = (
+				4F71D3D31BFE894C000FC3EB /* MainMenu.xib */,
 				4F967D9F1BFD1DDA0048DE4D /* AppDelegate.swift */,
 				4F967DA11BFD1DDA0048DE4D /* Assets.xcassets */,
-				4F967DA31BFD1DDA0048DE4D /* MainMenu.xib */,
 				4F967DA61BFD1DDA0048DE4D /* Info.plist */,
 			);
 			path = Shellbar;
@@ -75,15 +70,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4F967DC91BFD1F1D0048DE4D /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				4F967DCA1BFD1F390048DE4D /* ClearLogs.applescript */,
-				4F967DCC1BFD1F500048DE4D /* EmptyTrash.applescript */,
-			);
-			name = Scripts;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -94,6 +80,7 @@
 				4F967D981BFD1DDA0048DE4D /* Sources */,
 				4F967D991BFD1DDA0048DE4D /* Frameworks */,
 				4F967D9A1BFD1DDA0048DE4D /* Resources */,
+				4FADAEDF1BFE280100E80967 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -144,19 +131,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F967DA21BFD1DDA0048DE4D /* Assets.xcassets in Resources */,
-				4F967DA51BFD1DDA0048DE4D /* MainMenu.xib in Resources */,
+				4F71D3D51BFE894C000FC3EB /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4FADAEDF1BFE280100E80967 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F967D981BFD1DDA0048DE4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F967DCB1BFD1F390048DE4D /* ClearLogs.applescript in Sources */,
-				4F967DCD1BFD1F500048DE4D /* EmptyTrash.applescript in Sources */,
 				4F967DA01BFD1DDA0048DE4D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,10 +166,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4F967DA31BFD1DDA0048DE4D /* MainMenu.xib */ = {
+		4F71D3D31BFE894C000FC3EB /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4F967DA41BFD1DDA0048DE4D /* Base */,
+				4F71D3D41BFE894C000FC3EB /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -261,9 +263,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				ASSETCATALOG_NOTICES = NO;
+				ASSETCATALOG_WARNINGS = NO;
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Frameworks",
@@ -282,9 +287,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				ASSETCATALOG_NOTICES = NO;
+				ASSETCATALOG_WARNINGS = NO;
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Frameworks",
@@ -318,6 +326,7 @@
 				4F967DC11BFD1DDA0048DE4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
