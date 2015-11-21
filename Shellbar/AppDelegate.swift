@@ -9,8 +9,7 @@
 
 import Foundation
 import Cocoa
-import AppleScriptKit
-import AppleScriptObjC
+import WebKit
 import SwiftShell
 
 @NSApplicationMain
@@ -18,6 +17,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var view: NSView!
+    @IBOutlet var aboutWebView: WebView!
+    
+    var urlpath = NSBundle.mainBundle().pathForResource("about", ofType: "html")
+    
+    func loadAddressURL() {
+        let requesturl = NSURL(string: urlpath!)
+        let request = NSURLRequest(URL: requesturl!)
+        aboutWebView.mainFrame.loadRequest(request)
+    }
     
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
     
@@ -35,23 +43,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         notification.title = "Hiding hidden files"
         notification.informativeText = "Finder will restart, and you'll probably notice it"
         notification.soundName = NSUserNotificationDefaultSoundName
-        //notification.contentImage = NSImage(named: "StatusBarIcon")
-        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
-    }
-    func ClearLogsNotify() -> Void {
-        let notification = NSUserNotification()
-        notification.title = "Clearing logs"
-        notification.informativeText = "This may take a while"
-        notification.soundName = NSUserNotificationDefaultSoundName
-        //notification.contentImage = NSImage(named: "StatusBarIcon")
-        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
-    }
-    func EmptyTrashNotify() -> Void {
-        let notification = NSUserNotification()
-        notification.title = "Emptying trash"
-        notification.informativeText = "This may take a while depending on how many files you have in the trash"
-        notification.soundName = NSUserNotificationDefaultSoundName
-        //notification.contentImage = NSImage(named: "StatusBarIcon")
         NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
     }
     
@@ -75,18 +66,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //EmptyTrashNotify()
         run("osascript -e 'do shell script \"sudo rm -fdrv ~/.Trash/*\" with administrator privileges'")
     }
-
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    // About Shellbar
+    func AboutShellbar(sender: AnyObject) {
+        self.window!.orderFront(self)
+        NSApplication.sharedApplication().activateIgnoringOtherApps(true)
+        loadAddressURL()
+    }
+    
+    // NOTE: aNotificaton
+    func applicationDidFinishLaunching(notification: NSNotification) {
         if let button = statusItem.button {
             button.image = NSImage(named: "StatusBarIcon")
-            button.action = Selector("ShowFiles:")
-            button.action = Selector("HideFiles:")
-            button.action = Selector("ClearLogs:")
-            button.action = Selector("EmptyTrash:")
+        }
+        
+        if let button = statusItem.button {
+        button.image = NSImage(named: "StatusBarIcon")
+        button.action = Selector("AboutShellbar:")
+        button.action = Selector("ShowFiles:")
+        button.action = Selector("HideFiles:")
+        button.action = Selector("ClearLogs:")
+        button.action = Selector("EmptyTrash:")
         }
         
         let menu = NSMenu()
         // Menu Items
+        menu.addItem(NSMenuItem(title: "About Shellbar", action: Selector("AboutShellbar:"), keyEquivalent: ""))
+        menu.addItem(NSMenuItem.separatorItem())
         menu.addItem(NSMenuItem(title: "Show Hidden Files", action: Selector("ShowFiles:"), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Hide Hidden Files", action: Selector("HideFiles:"), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separatorItem())
@@ -97,6 +102,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         statusItem.menu = menu
     }
-
+    
     func applicationWillTerminate(aNotification: NSNotification) {}
 }
