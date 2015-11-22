@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="9060"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -14,78 +13,26 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Shellbar" customModuleProvider="target">
             <connections>
-                <outlet property="aboutWebView" destination="SuJ-Iq-BlW" id="AOY-tz-4Ww"/>
-                <outlet property="view" destination="zWt-GW-YZo" id="i2c-7o-wd5"/>
-                <outlet property="window" destination="Imk-Ol-FeC" id="fwS-b4-rAm"/>
+                <outlet property="view" destination="Q3L-Ej-SIj" id="zMD-jq-bpO"/>
+                <outlet property="window" destination="TCv-HQ-mZj" id="IOj-6B-sY4"/>
             </connections>
         </customObject>
-        <window title="Shellbar" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" backingType="nonretained" id="Imk-Ol-FeC" userLabel="window">
-            <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
-            <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" fullScreenAuxiliary="YES"/>
-            <rect key="contentRect" x="651" y="312" width="400" height="400"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1366" height="768"/>
-            <value key="minSize" type="size" width="400" height="400"/>
-            <value key="maxSize" type="size" width="400" height="400"/>
-            <value key="minFullScreenContentSize" type="size" width="400" height="400"/>
-            <value key="maxFullScreenContentSize" type="size" width="400" height="400"/>
-            <view key="contentView" wantsLayer="YES" canDrawConcurrently="YES" id="zWt-GW-YZo" userLabel="view">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="alertPanel" backingType="nonretained" frameAutosaveName="" id="TCv-HQ-mZj">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <rect key="contentRect" x="121" y="129" width="300" height="200"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1366" height="745"/>
+            <value key="minSize" type="size" width="300" height="200"/>
+            <value key="maxSize" type="size" width="300" height="200"/>
+            <value key="minFullScreenContentSize" type="size" width="300" height="200"/>
+            <value key="maxFullScreenContentSize" type="size" width="300" height="200"/>
+            <view key="contentView" wantsLayer="YES" focusRingType="none" id="Q3L-Ej-SIj">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kOF-wj-6fD">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="25"/>
-                        <animations/>
-                        <buttonCell key="cell" type="square" title="CLOSE" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jVP-35-UAc">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="hide:" target="-2" id="8wH-Mk-V7a"/>
-                        </connections>
-                    </button>
-                    <webView translatesAutoresizingMaskIntoConstraints="NO" id="SuJ-Iq-BlW">
-                        <rect key="frame" x="0.0" y="25" width="400" height="375"/>
-                        <animations/>
-                        <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0">
-                            <nil key="identifier"/>
-                        </webPreferences>
-                    </webView>
-                </subviews>
-                <constraints>
-                    <constraint firstItem="SuJ-Iq-BlW" firstAttribute="leading" secondItem="zWt-GW-YZo" secondAttribute="leading" id="C9X-9A-J44"/>
-                    <constraint firstItem="SuJ-Iq-BlW" firstAttribute="trailing" secondItem="kOF-wj-6fD" secondAttribute="trailing" id="GOV-MD-bGJ"/>
-                    <constraint firstItem="kOF-wj-6fD" firstAttribute="top" secondItem="SuJ-Iq-BlW" secondAttribute="bottom" id="MdI-Oi-Edn"/>
-                    <constraint firstAttribute="bottom" secondItem="kOF-wj-6fD" secondAttribute="bottom" id="f2Q-kl-IbY"/>
-                    <constraint firstAttribute="trailing" secondItem="SuJ-Iq-BlW" secondAttribute="trailing" id="gzh-RP-UHv"/>
-                    <constraint firstItem="SuJ-Iq-BlW" firstAttribute="top" secondItem="zWt-GW-YZo" secondAttribute="top" id="o6f-Tc-XRL"/>
-                    <constraint firstItem="kOF-wj-6fD" firstAttribute="leading" secondItem="SuJ-Iq-BlW" secondAttribute="leading" id="x5Y-BK-eB9"/>
-                </constraints>
-                <animations>
-                    <caTransition key="subviews">
-                        <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGU1RYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEQcI
-ER8pLzk8PT4/REUKC0tOVSRudWxs1AkKCwwNDg8QViRjbGFzc1ZmaWx0ZXJUdHlwZV8QEl9fQ0FDb2Rp
-bmdDb250ZW50c4AQgAKAC4AM1wkSExQVFhcYGRobHB0ZXENJX2lucHV0VGltZV1DSV9pbnB1dFdpZHRo
-XUNJX2lucHV0Q29sb3JeQ0lfaW5wdXRFeHRlbnRfEA9DSV9pbnB1dE9wYWNpdHldQ0lfaW5wdXRBbmds
-ZYAKgAeACIAFgAOACYAH1iAhIiMkCSUmJyYlKFRDSV8yVENJXzBXQ0lDb3VudFRDSV8xVENJXzMiQ5YA
-ACIAAAAAEASABNIqKywtWiRjbGFzc25hbWVYJGNsYXNzZXNYQ0lWZWN0b3KiLC5YTlNPYmplY3TVCTAx
-MjM0NTY3OFNyZWRVYWxwaGFUYmx1ZVVncmVlboAGIj909PUiP4AAACI+WNjZIj6GhofSKis6O1dDSUNv
-bG9yojouIwAAAAAAAAAAI0BpAAAAAAAAIz/0zMzMzMzN0iorQEFfEBdDSUNvcHlNYWNoaW5lVHJhbnNp
-dGlvbqNCQy5fEBdDSUNvcHlNYWNoaW5lVHJhbnNpdGlvblhDSUZpbHRlclRmYWRl0kYJR0paTlMub2Jq
-ZWN0c6JISYANgA6AD9IqK0xNV05TQXJyYXmiTC7SKitPUFxDQVRyYW5zaXRpb26jUVIuXENBVHJhbnNp
-dGlvbltDQUFuaW1hdGlvbl8QD05TS2V5ZWRBcmNoaXZlctFVVlRyb290gAEACAARABoAIwAtADIANwBL
-AFEAWgBhAGgAbQCCAIQAhgCIAIoAmQCmALQAwgDRAOMA8QDzAPUA9wD5APsA/QD/AQwBEQEWAR4BIwEo
-AS0BMgE0ATYBOwFGAU8BWAFbAWQBbwFzAXkBfgGEAYYBiwGQAZUBmgGfAacBqgGzAbwBxQHKAeQB6AIC
-AgsCEAIVAiACIwIlAicCKQIuAjYCOQI+AksCTwJcAmgCegJ9AoIAAAAAAAACAQAAAAAAAABXAAAAAAAA
-AAAAAAAAAAAChA
-</mutableData>
-                    </caTransition>
-                </animations>
+                <animations/>
             </view>
             <connections>
-                <outlet property="delegate" destination="Voe-Tx-rLC" id="ceY-0i-mxa"/>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="TTG-A2-cDF"/>
             </connections>
-            <point key="canvasLocation" x="371" y="340"/>
         </window>
     </objects>
 </document>

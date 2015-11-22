@@ -5,12 +5,12 @@
     },
     {
       "idiom" : "mac",
-      "filename" : "StatusBarIcon@2x-a.png",
+      "filename" : "StatusBarIcon_16x16.png",
       "scale" : "1x"
     },
     {
       "idiom" : "mac",
-      "filename" : "StatusBarIcon@2x-a-1.png",
+      "filename" : "StatusBarIcon_16x16@2x.png",
       "scale" : "2x"
     }
   ],
