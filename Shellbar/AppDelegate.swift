@@ -9,7 +9,8 @@
 
 import Foundation
 import Cocoa
-import AppKit
+import AppleScriptKit
+import AppleScriptObjC
 import SwiftShell
 
 @NSApplicationMain
@@ -44,13 +45,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     // CLEAR LOGS
     func ClearLogs(sender: AnyObject) {
-        // RUN
-        run("osascript -e 'do shell script \"sudo rm -fdrv /tmp/*; sudo rm -fdrv /var/tmp/*; sudo rm -fdrv /var/log/*; sudo rm -fdrv /private/tmp/*; sudo rm -fdrv /private/var/log/*\" with administrator privileges'")
+        NSAppleScript(source: "do shell script \"sudo rm -fdrv /tmp/*; sudo rm -fdrv /var/tmp/*; sudo rm -fdrv /var/log/*; sudo rm -fdrv /private/tmp/*; sudo rm -fdrv /private/var/log/*\" with administrator " +
+            "privileges")!.executeAndReturnError(nil)
     }
     // EMPTY TRASH
     func EmptyTrash(sender: AnyObject) {
-        // RUN
-        run("osascript -e 'do shell script \"sudo rm -fdrv ~/.Trash/*\" with administrator privileges'")
+        NSAppleScript(source: "do shell script \"sudo rm -fdrv ~/.Trash/*\" with administrator " +
+            "privileges")!.executeAndReturnError(nil)
     }
     // ABOUT SHELLBAR
     func AboutShellbar(sender: AnyObject) {
