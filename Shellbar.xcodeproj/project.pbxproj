@@ -11,8 +11,23 @@
 		4F71D3E31BFEBC00000FC3EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3E21BFEBC00000FC3EB /* AppDelegate.swift */; };
 		4F83D10E1C00E50B00670F94 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F83D10D1C00E50B00670F94 /* AppKit.framework */; };
 		4F967DA21BFD1DDA0048DE4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F967DA11BFD1DDA0048DE4D /* Assets.xcassets */; };
-		4F967DCF1BFD1F610048DE4D /* SwiftShell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F967DCE1BFD1F610048DE4D /* SwiftShell.framework */; };
+		4FCE8B6D1C179C150014534D /* SwiftShell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCE8B6C1C179C150014534D /* SwiftShell.framework */; };
+		4FCE8B6E1C179C200014534D /* SwiftShell.framework in Copy External Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCE8B6C1C179C150014534D /* SwiftShell.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4F93F4C81C17468B00DB4F2C /* Copy External Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4FCE8B6E1C179C200014534D /* SwiftShell.framework in Copy External Frameworks */,
+			);
+			name = "Copy External Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4F71D3D41BFE894C000FC3EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -21,7 +36,7 @@
 		4F967D9C1BFD1DDA0048DE4D /* Shellbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shellbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F967DA11BFD1DDA0048DE4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F967DA61BFD1DDA0048DE4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F967DCE1BFD1F610048DE4D /* SwiftShell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftShell.framework; path = ../../Library/Frameworks/SwiftShell.framework; sourceTree = "<group>"; };
+		4FCE8B6C1C179C150014534D /* SwiftShell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftShell.framework; path = "Shellbar/External Frameworks/SwiftShell.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,7 +45,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F83D10E1C00E50B00670F94 /* AppKit.framework in Frameworks */,
-				4F967DCF1BFD1F610048DE4D /* SwiftShell.framework in Frameworks */,
+				4FCE8B6D1C179C150014534D /* SwiftShell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,8 +82,8 @@
 		4F967DC81BFD1F100048DE4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FCE8B6C1C179C150014534D /* SwiftShell.framework */,
 				4F83D10D1C00E50B00670F94 /* AppKit.framework */,
-				4F967DCE1BFD1F610048DE4D /* SwiftShell.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -92,7 +107,7 @@
 				4F967D981BFD1DDA0048DE4D /* Sources */,
 				4F967D991BFD1DDA0048DE4D /* Frameworks */,
 				4F967D9A1BFD1DDA0048DE4D /* Resources */,
-				4FADAEDF1BFE280100E80967 /* SwiftLint */,
+				4F93F4C81C17468B00DB4F2C /* Copy External Frameworks */,
 			);
 			buildRules = (
 			);
@@ -115,7 +130,6 @@
 				TargetAttributes = {
 					4F967D9B1BFD1DDA0048DE4D = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = KM8FQRJ2WD;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 0;
@@ -156,23 +170,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4FADAEDF1BFE280100E80967 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F967D981BFD1DDA0048DE4D /* Sources */ = {
@@ -238,7 +235,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VALIDATE_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -275,7 +272,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				VALIDATE_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -283,9 +280,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_NOTICES = NO;
-				ASSETCATALOG_WARNINGS = NO;
+				ASSETCATALOG_NOTICES = YES;
+				ASSETCATALOG_WARNINGS = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = NO;
@@ -295,6 +293,8 @@
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Shellbar/External",
+					Frameworks,
 				);
 				INFOPLIST_FILE = Shellbar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -303,7 +303,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				VALIDATE_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -311,9 +311,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_NOTICES = NO;
-				ASSETCATALOG_WARNINGS = NO;
+				ASSETCATALOG_NOTICES = YES;
+				ASSETCATALOG_WARNINGS = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = NO;
@@ -323,6 +324,8 @@
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Shellbar/External",
+					Frameworks,
 				);
 				INFOPLIST_FILE = Shellbar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -331,7 +334,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				VALIDATE_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};

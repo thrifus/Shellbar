@@ -53,6 +53,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSAppleScript(source: "do shell script \"sudo rm -fdrv ~/.Trash/*\" with administrator " +
             "privileges")!.executeAndReturnError(nil)
     }
+    // Lock Screen
+    func LockScreen(sender: AnyObject) {
+        let IOReg = IORegistryEntryFromPath(kIOMasterPortDefault, "IOService:/IOResources/IODisplayWrangler")
+        if (IOReg > 0) {
+            IORegistryEntrySetCFProperty(IOReg, "IORequestIdle", kCFBooleanTrue)
+            IOObjectRelease(IOReg)
+        }
+    }
     // ABOUT SHELLBAR
     func AboutShellbar(sender: AnyObject) {
         let AboutAlert: NSAlert = NSAlert()
@@ -90,6 +98,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem.separatorItem())
         menu.addItem(NSMenuItem(title: "Clear Logs", action: Selector("ClearLogs:"), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Empty Trash", action: Selector("EmptyTrash:"), keyEquivalent: ""))
+        menu.addItem(NSMenuItem.separatorItem())
+        menu.addItem(NSMenuItem(title: "Lock Screen", action: Selector("LockScreen:"), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separatorItem())
         menu.addItem(NSMenuItem(title: "Quit Shellbar", action: Selector("terminate:"), keyEquivalent: ""))
         
