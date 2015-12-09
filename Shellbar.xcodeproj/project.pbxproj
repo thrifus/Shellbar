@@ -11,8 +11,8 @@
 		4F71D3E31BFEBC00000FC3EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3E21BFEBC00000FC3EB /* AppDelegate.swift */; };
 		4F83D10E1C00E50B00670F94 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F83D10D1C00E50B00670F94 /* AppKit.framework */; };
 		4F967DA21BFD1DDA0048DE4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F967DA11BFD1DDA0048DE4D /* Assets.xcassets */; };
-		4FCE8B6D1C179C150014534D /* SwiftShell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCE8B6C1C179C150014534D /* SwiftShell.framework */; };
-		4FCE8B6E1C179C200014534D /* SwiftShell.framework in Copy External Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCE8B6C1C179C150014534D /* SwiftShell.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4FBB5BDB1C187FB600CF95B5 /* SwiftShell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBB5BDA1C187FB600CF95B5 /* SwiftShell.framework */; };
+		4FBB5BDC1C187FBE00CF95B5 /* SwiftShell.framework in Copy External Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBB5BDA1C187FB600CF95B5 /* SwiftShell.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -22,7 +22,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4FCE8B6E1C179C200014534D /* SwiftShell.framework in Copy External Frameworks */,
+				4FBB5BDC1C187FBE00CF95B5 /* SwiftShell.framework in Copy External Frameworks */,
 			);
 			name = "Copy External Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -36,7 +36,7 @@
 		4F967D9C1BFD1DDA0048DE4D /* Shellbar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shellbar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F967DA11BFD1DDA0048DE4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F967DA61BFD1DDA0048DE4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4FCE8B6C1C179C150014534D /* SwiftShell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftShell.framework; path = "Shellbar/External Frameworks/SwiftShell.framework"; sourceTree = "<group>"; };
+		4FBB5BDA1C187FB600CF95B5 /* SwiftShell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftShell.framework; path = Shellbar/ExternalFrameworks/SwiftShell.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FBB5BDB1C187FB600CF95B5 /* SwiftShell.framework in Frameworks */,
 				4F83D10E1C00E50B00670F94 /* AppKit.framework in Frameworks */,
-				4FCE8B6D1C179C150014534D /* SwiftShell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 		4F967DC81BFD1F100048DE4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4FCE8B6C1C179C150014534D /* SwiftShell.framework */,
+				4FBB5BDA1C187FB600CF95B5 /* SwiftShell.framework */,
 				4F83D10D1C00E50B00670F94 /* AppKit.framework */,
 			);
 			name = Frameworks;
@@ -125,7 +125,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = thrifus;
 				TargetAttributes = {
 					4F967D9B1BFD1DDA0048DE4D = {
@@ -295,6 +295,7 @@
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Shellbar/External",
 					Frameworks,
+					"$(PROJECT_DIR)/Shellbar/ExternalFrameworks",
 				);
 				INFOPLIST_FILE = Shellbar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -326,6 +327,7 @@
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Shellbar/External",
 					Frameworks,
+					"$(PROJECT_DIR)/Shellbar/ExternalFrameworks",
 				);
 				INFOPLIST_FILE = Shellbar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
