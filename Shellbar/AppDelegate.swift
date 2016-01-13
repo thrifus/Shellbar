@@ -76,7 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let body = "NOTE: IF YOU ARE SUBMITTING ONE OR THE OTHER, JUST TYPE \"NONE\" IN THE ONE YOU DON'T WANT TO SUBMIT.\nYOU CAN DELETE THIS PART NOW.\n\nBUG REPORT:\n<REPLACE WITH THE BUG YOU FOUND>\n\n\nFEATURE REQUEST:\n<REPLACE WITH YOUR FEATURE REQUEST>"
             let shareItems = [body] as NSArray
             let service = NSSharingService(named: NSSharingServiceNameComposeEmail)
-            service?.recipients = ["admin@thrifus.co"]
+            service?.recipients = ["thrifus@gmail.com"]
             let subject = "<CHANGE THIS TO YOUR OWN SUBJECT DEPENDING ON WHAT YOU ARE SUBMITTING>"
             service?.subject = subject
             service?.performWithItems(shareItems as [AnyObject])
