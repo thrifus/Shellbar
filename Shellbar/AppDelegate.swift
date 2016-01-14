@@ -18,30 +18,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var view: NSView!
-    
+
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
-    
-    // SHOW HIDDEN FILES
-    func ShowFiles(sender: AnyObject) {
-        // NOTIFY
-        let SHFNotification = NSUserNotification()
-        SHFNotification.title = "Showing hidden files"
-        SHFNotification.informativeText = "Finder will restart, and you'll probably notice it"
-        SHFNotification.soundName = NSUserNotificationDefaultSoundName
-        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(SHFNotification)
-        // RUN
-        run("defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder")
-    }
-    // HIDE HIDDEN FILES
-    func HideFiles(sender: AnyObject) {
-        // NOTIFY
-        let HHFNotification = NSUserNotification()
-        HHFNotification.title = "Hiding hidden files"
-        HHFNotification.informativeText = "Finder will restart, and you'll probably notice it"
-        HHFNotification.soundName = NSUserNotificationDefaultSoundName
-        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(HHFNotification)
-        // RUN
-        run("defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder")
+
+    // SHOW / HIDE HIDDEN FILES
+    func ShowHideFiles(sender: AnyObject) {
+        run("if [[ \"$(defaults read com.apple.Finder AppleShowAllFiles)\" = FALSE ]]; then defaults write com.apple.Finder AppleShowAllFiles TRUE && killall Finder; else defaults write com.apple.Finder AppleShowAllFiles FALSE && killall Finder; fi")
     }
     // CLEAR LOGS
     func ClearLogs(sender: AnyObject) {
@@ -72,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let os = NSProcessInfo().operatingSystemVersion
             let OSTYPE = String("OS X \(os.majorVersion).\(os.minorVersion).\(os.patchVersion)")
             print(OSTYPE)
-            
+
             let body = "NOTE: IF YOU ARE SUBMITTING ONE OR THE OTHER, JUST TYPE \"NONE\" IN THE ONE YOU DON'T WANT TO SUBMIT.\nYOU CAN DELETE THIS PART NOW.\n\nBUG REPORT:\n<REPLACE WITH THE BUG YOU FOUND>\n\n\nFEATURE REQUEST:\n<REPLACE WITH YOUR FEATURE REQUEST>"
             let shareItems = [body] as NSArray
             let service = NSSharingService(named: NSSharingServiceNameComposeEmail)
@@ -82,29 +64,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             service?.performWithItems(shareItems as [AnyObject])
         }
     }
-    
-    // NOTE: aNotificaton
-    func applicationDidFinishLaunching(notification: NSNotification) {
+
+    // NOTE: notification
+    func applicationDidFinishLaunching(aNotification: NSNotification) {
         if let button = statusItem.button {
             button.image = NSImage(named: "StatusBarIcon")
         }
-        
+
         let menu = NSMenu()
         // MENU ITEMS
-        menu.addItem(NSMenuItem(title: "About Shellbar", action: Selector("AboutShellbar:"), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "About Shellbar", action: Selector("AboutShellbar:"), keyEquivalent: "A"))
         menu.addItem(NSMenuItem.separatorItem())
-        menu.addItem(NSMenuItem(title: "Show Hidden Files", action: Selector("ShowFiles:"), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "Hide Hidden Files", action: Selector("HideFiles:"), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Show / Hide Hidden Files", action: Selector("ShowHideFiles:"), keyEquivalent: "S"))
         menu.addItem(NSMenuItem.separatorItem())
-        menu.addItem(NSMenuItem(title: "Clear Logs", action: Selector("ClearLogs:"), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "Empty Trash", action: Selector("EmptyTrash:"), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Clear Logs", action: Selector("ClearLogs:"), keyEquivalent: "C"))
+        menu.addItem(NSMenuItem(title: "Empty Trash", action: Selector("EmptyTrash:"), keyEquivalent: "E"))
         menu.addItem(NSMenuItem.separatorItem())
-        menu.addItem(NSMenuItem(title: "Lock Screen", action: Selector("LockScreen:"), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Lock Screen", action: Selector("LockScreen:"), keyEquivalent: "L"))
         menu.addItem(NSMenuItem.separatorItem())
-        menu.addItem(NSMenuItem(title: "Quit Shellbar", action: Selector("terminate:"), keyEquivalent: ""))
-        
+        menu.addItem(NSMenuItem(title: "Quit Shellbar", action: Selector("terminate:"), keyEquivalent: "Q"))
+
         statusItem.menu = menu
     }
-    // NOTE: aNotification
-    func applicationWillTerminate(notification: NSNotification) {}
+    // NOTE: notification
+    func applicationWillTerminate(aNotification: NSNotification) {}
 }
