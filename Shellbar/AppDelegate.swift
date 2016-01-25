@@ -32,8 +32,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     // EMPTY TRASH
     func EmptyTrash(sender: AnyObject) {
-        NSAppleScript(source: "do shell script \"sudo rm -fdrv ~/.Trash/*\" with administrator " +
-            "privileges")!.executeAndReturnError(nil)
+        run("rm -fdrv ~/.Trash/*")
+        // Old way, needs admin privileges. Emptying the trash shouldn't need that.
+        //NSAppleScript(source: "do shell script \"sudo rm -fdrv ~/.Trash/*\" with administrator " +
+        //    "privileges")!.executeAndReturnError(nil)
     }
     // Lock Screen
     func LockScreen(sender: AnyObject) {
@@ -64,6 +66,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             service?.performWithItems(shareItems as [AnyObject])
         }
     }
+    func GetExternalIP(sender: AnyObject) {
+        run("dig +short myip.opendns.com @resolver1.opendns.com | pbcopy")
+    }
+    func GetInternalIP(sender: AnyObject) {
+        run("ipconfig getifaddr en0 | pbcopy")
+    }
+    func ScreenSaver(sender: AnyObject) {
+        run("open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app")
+    }
 
     // NOTE: notification
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -73,17 +84,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         let menu = NSMenu()
         // MENU ITEMS
-        menu.addItem(NSMenuItem(title: "About Shellbar", action: Selector("AboutShellbar:"), keyEquivalent: "A"))
-        menu.addItem(NSMenuItem.separatorItem())
-        menu.addItem(NSMenuItem(title: "Show / Hide Hidden Files", action: Selector("ShowHideFiles:"), keyEquivalent: "S"))
-        menu.addItem(NSMenuItem.separatorItem())
-        menu.addItem(NSMenuItem(title: "Clear Logs", action: Selector("ClearLogs:"), keyEquivalent: "C"))
-        menu.addItem(NSMenuItem(title: "Empty Trash", action: Selector("EmptyTrash:"), keyEquivalent: "E"))
-        menu.addItem(NSMenuItem.separatorItem())
-        menu.addItem(NSMenuItem(title: "Lock Screen", action: Selector("LockScreen:"), keyEquivalent: "L"))
-        menu.addItem(NSMenuItem.separatorItem())
-        menu.addItem(NSMenuItem(title: "Quit Shellbar", action: Selector("terminate:"), keyEquivalent: "Q"))
-
+        menu.addItem(NSMenuItem(title: "About Shellbar", action: Selector("AboutShellbar:"), keyEquivalent: ""))
+            menu.addItem(NSMenuItem.separatorItem())
+        menu.addItem(NSMenuItem(title: "Show / Hide Hidden Files", action: Selector("ShowHideFiles:"), keyEquivalent: ""))
+            menu.addItem(NSMenuItem.separatorItem())
+        menu.addItem(NSMenuItem(title: "Clear Logs", action: Selector("ClearLogs:"), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Empty Trash", action: Selector("EmptyTrash:"), keyEquivalent: ""))
+            menu.addItem(NSMenuItem.separatorItem())
+        menu.addItem(NSMenuItem(title: "Lock Screen", action: Selector("LockScreen:"), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Start Screensaver", action: Selector("ScreenSaver:"), keyEquivalent: ""))
+        // Get ready for when I figure out how to copy text to the clipboard. Feel free to help with that by the way.
+            menu.addItem(NSMenuItem.separatorItem())
+        menu.addItem(NSMenuItem(title: "External IP:", action: Selector(""), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "\(run("dig +short myip.opendns.com @resolver1.opendns.com").read())", action: Selector("GetExternalIP:"), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Internal IP:", action: Selector(""), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "\(run("ipconfig getifaddr en0").read())", action: Selector("GetInternalIP:"), keyEquivalent: ""))
+            menu.addItem(NSMenuItem.separatorItem())
+        menu.addItem(NSMenuItem(title: "Quit Shellbar", action: Selector("terminate:"), keyEquivalent: ""))
         statusItem.menu = menu
     }
     // NOTE: notification

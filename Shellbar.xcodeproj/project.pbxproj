@@ -297,6 +297,7 @@
 					"$(PROJECT_DIR)/Shellbar/External",
 					Frameworks,
 					"$(PROJECT_DIR)/Shellbar/ExternalFrameworks",
+					"$(PROJECT_DIR)/Shellbar/Frameworks",
 				);
 				INFOPLIST_FILE = Shellbar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -329,6 +330,7 @@
 					"$(PROJECT_DIR)/Shellbar/External",
 					Frameworks,
 					"$(PROJECT_DIR)/Shellbar/ExternalFrameworks",
+					"$(PROJECT_DIR)/Shellbar/Frameworks",
 				);
 				INFOPLIST_FILE = Shellbar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
