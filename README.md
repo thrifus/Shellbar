@@ -1,10 +1,6 @@
 # 🐚 Shellbar 🐚
 Run shell scripts from your status bar!
 
-> sumdey sewn it wil tern into majikul
-> <br />
-> just u wayt
-
 ## Features:
 - [x] Showing hidden (dot) files in Finder
 - [x] Hiding hidden (dot) files in Finder
